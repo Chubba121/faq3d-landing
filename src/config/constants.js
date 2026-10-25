@@ -24,6 +24,16 @@ export const SITE = {
 export const GOOGLE_SHEETS_CSV_URL =
   'https://docs.google.com/spreadsheets/d/e/2PACX-1vTiOQHx52TsMJMNlI4_8rPYaF7HawTsObFnXWknP-Iwnf7JaMoNt1WXmFoDs-e9d_yYJzS2mLB5D-Uf/pub?output=csv'
 
+/**
+ * Endpoint propio (`api/catalog.js`) que cachea la planilla en el CDN de
+ * Vercel: los visitantes pegan contra esa copia y Google recibe ~12 requests
+ * por hora en vez de uno por visita.
+ *
+ * En `npm run dev` se sigue pidiendo la planilla directo, porque las
+ * funciones de Vercel no corren en el servidor de Vite.
+ */
+export const CATALOG_ENDPOINT = '/api/catalog'
+
 export const WHATSAPP_MESSAGES = {
   general: 'Hola, vengo de la web, estoy interesado en una de tus impresiones.',
   // El precio se omite cuando la planilla no trae uno válido (vacío, texto o

@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { GOOGLE_SHEETS_CSV_URL } from './src/config/constants.js'
+import { CATALOG_ENDPOINT, GOOGLE_SHEETS_CSV_URL } from './src/config/constants.js'
 
 // ─── SEO ─────────────────────────────────────────────────────────────────────
 // Dominio público del sitio, sin barra final. Es el ÚNICO lugar donde se define:
@@ -25,17 +25,23 @@ const sitemapXml = () => `<?xml version="1.0" encoding="UTF-8"?>
 </urlset>
 `
 
-/** Reemplaza %SITE_URL% en index.html y genera robots.txt + sitemap.xml. */
-function seoFiles() {
+/**
+ * Reemplaza %SITE_URL% y %CATALOG_URL% en index.html y genera robots.txt +
+ * sitemap.xml.
+ *
+ * `catalogUrl` cambia según el comando: al compilar apunta al endpoint propio
+ * (`api/catalog.js`), que cachea la planilla en el CDN; en `npm run dev` va
+ * directo a Google, porque la función de Vercel no corre en el server de Vite.
+ */
+function seoFiles(catalogUrl) {
   return {
     name: 'faq3d-seo',
     transformIndexHtml(html) {
       return html
         .replaceAll('%SITE_URL%', SITE_URL)
-        // La URL del CSV viene de la misma constante que usa la app: el
-        // script inline del index.html pide la planilla antes de que se
+        // El script inline del index.html pide el catálogo antes de que se
         // descargue el bundle.
-        .replaceAll('%SHEETS_CSV_URL%', GOOGLE_SHEETS_CSV_URL)
+        .replaceAll('%CATALOG_URL%', catalogUrl)
     },
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
@@ -59,6 +65,6 @@ function seoFiles() {
   }
 }
 
-export default defineConfig({
-  plugins: [react(), seoFiles()],
-})
+export default defineConfig(({ command }) => ({
+  plugins: [react(), seoFiles(command === 'serve' ? GOOGLE_SHEETS_CSV_URL : CATALOG_ENDPOINT)],
+}))

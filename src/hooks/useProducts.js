@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
-import { GOOGLE_SHEETS_CSV_URL } from '../config/constants.js'
+import { CATALOG_ENDPOINT, GOOGLE_SHEETS_CSV_URL } from '../config/constants.js'
 import { hexFromColorName, normalizeColorValue, parseFilamentColors } from '../config/colors.js'
 import { normalizeCategoryId } from '../config/categories.js'
 import {
@@ -55,6 +55,16 @@ const POLL_INTERVAL_MS = Number(import.meta.env?.VITE_SHEETS_POLL_MS) || 60 * 60
 // Clave de la copia local del catálogo. Cambiar la versión invalida la copia
 // guardada (por ejemplo, si cambia la forma de los datos).
 const CACHE_KEY = 'faq3d:catalog:v2'
+
+// De dónde sale el catálogo. En producción es el endpoint propio, que cachea
+// la planilla en el CDN de Vercel; en desarrollo se pide directo a Google
+// porque las funciones de Vercel no existen en el servidor de Vite.
+const CATALOG_URL = import.meta.env.DEV ? GOOGLE_SHEETS_CSV_URL : CATALOG_ENDPOINT
+
+// Pidiendo la planilla directo (solo en desarrollo) conviene saltear la caché
+// del navegador para ver los cambios al instante. Con el endpoint propio no:
+// la respuesta la cachea el CDN y un `no-store` en el pedido lo saltearía.
+const CATALOG_REQUEST_CACHE = CATALOG_URL === GOOGLE_SHEETS_CSV_URL ? 'no-store' : 'default'
 
 // Cache de módulo: evita pedir el CSV dos veces (StrictMode en desarrollo o
 // dos consumidores del hook) y comparte la misma respuesta.
@@ -298,11 +308,9 @@ async function requestSheetText() {
   try {
     const controller = new AbortController()
     const timeoutId = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS)
-    response = await fetch(GOOGLE_SHEETS_CSV_URL, {
+    response = await fetch(CATALOG_URL, {
       signal: controller.signal,
-      // La planilla responde con max-age=300: sin esto el navegador nos
-      // devolvería la copia cacheada y no veríamos los cambios a tiempo.
-      cache: 'no-store',
+      cache: CATALOG_REQUEST_CACHE,
       headers: { Accept: 'text/csv, text/plain, */*' },
     })
     clearTimeout(timeoutId)
@@ -332,7 +340,7 @@ async function requestSheetText() {
 
 /** Pide el CSV público y devuelve { ok, data } o { ok: false, reason }. */
 async function loadSheetProducts() {
-  if (!GOOGLE_SHEETS_CSV_URL || GOOGLE_SHEETS_CSV_URL.length < 5) {
+  if (!CATALOG_URL || CATALOG_URL.length < 5) {
     return { ok: false, reason: 'Sin URL de Google Sheets configurada.' }
   }
 
