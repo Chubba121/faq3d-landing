@@ -4,9 +4,25 @@ import { CATALOG_ENDPOINT, GOOGLE_SHEETS_CSV_URL } from './src/config/constants.
 
 // ─── SEO ─────────────────────────────────────────────────────────────────────
 // Dominio público del sitio, sin barra final. Es el ÚNICO lugar donde se define:
-// se usa en canonical, Open Graph, robots.txt y sitemap.xml.
-// Al compilar también se puede sobreescribir con la variable de entorno SITE_URL.
-const SITE_URL = (process.env.SITE_URL ?? 'https://faq3d.com.ar').replace(/\/+$/, '')
+// se usa en canonical, Open Graph, robots.txt, sitemap.xml y el JSON-LD.
+//
+// Orden de prioridad:
+//   1. SITE_URL (variable propia, para fijarlo a mano cuando hay dominio propio).
+//   2. VERCEL_PROJECT_PRODUCTION_URL, que Vercel define solo con el dominio de
+//      producción del proyecto: así nunca queda apuntando a un dominio que no
+//      existe (pasó con faq3d.com.ar, que no resolvía y rompía la vista previa
+//      al compartir el link).
+//   3. El dominio actual del sitio, como último respaldo en local.
+const CLEAN_SITE_URL = (value) => String(value ?? '').trim().replace(/\/+$/, '')
+
+const SITE_URL =
+  CLEAN_SITE_URL(process.env.SITE_URL) ||
+  CLEAN_SITE_URL(
+    process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : '',
+  ) ||
+  'https://faq3d.vercel.app'
 
 const robotsTxt = () => `User-agent: *
 Allow: /
