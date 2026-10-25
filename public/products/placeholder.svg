@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-label="Sin foto del producto">
+  <g fill="none" stroke="#16130F" stroke-width="8" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="90" y="90" width="620" height="620" rx="36" stroke-dasharray="26 22" opacity="0.35" />
+    <path d="M400 250 L520 320 L400 390 L280 320 Z" opacity="0.9" />
+    <path d="M280 320 L280 470 L400 540 L400 390" opacity="0.9" />
+    <path d="M520 320 L520 470 L400 540" opacity="0.9" />
+    <path d="M340 285 L460 355" opacity="0.5" />
+  </g>
+  <text x="400" y="620" text-anchor="middle" font-family="Archivo, system-ui, sans-serif" font-size="34" font-weight="700" letter-spacing="6" fill="#6B6255">SIN FOTO</text>
+</svg>

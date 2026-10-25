@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="102 95 632 632" width="800" height="800" role="img">
+  <g transform="translate(26 30)" opacity="0.22" stroke-width="12" stroke-linejoin="round">
+    <g>
+      <polygon points="160,478 305,400 305,528" stroke="#A62E1B" fill="#A62E1B"/>
+      <rect x="316" y="498" width="52" height="96" rx="26" stroke="#A62E1B" fill="#A62E1B"/>
+      <rect x="412" y="504" width="52" height="90" rx="26" stroke="#A62E1B" fill="#A62E1B"/>
+      <polygon points="300,360 332,296 364,362" stroke="#A62E1B" fill="#A62E1B"/>
+      <polygon points="372,350 404,282 436,352" stroke="#A62E1B" fill="#A62E1B"/>
+      <ellipse cx="382" cy="440" rx="142" ry="106" stroke="#A62E1B" fill="#A62E1B"/>
+      <rect x="496" y="252" width="74" height="196" rx="37" transform="rotate(10 533 350)" stroke="#A62E1B" fill="#A62E1B"/>
+      <ellipse cx="556" cy="252" rx="74" ry="54" stroke="#A62E1B" fill="#A62E1B"/>
+      <rect x="586" y="236" width="64" height="44" rx="18" stroke="#A62E1B" fill="#A62E1B"/>
+      <circle cx="556" cy="232" r="14" stroke="#A62E1B" fill="#A62E1B"/>
+    </g>
+  </g>
+  <g stroke-width="12" stroke-linejoin="round" stroke-linecap="round">
+    <g>
+      <polygon points="160,478 305,400 305,528" fill="#2F9BDB" stroke="#16130F"/>
+      <rect x="316" y="498" width="52" height="96" rx="26" fill="#2F9BDB" stroke="#16130F"/>
+      <rect x="412" y="504" width="52" height="90" rx="26" fill="#2F9BDB" stroke="#16130F"/>
+      <polygon points="300,360 332,296 364,362" fill="#2F9BDB" stroke="#16130F"/>
+      <polygon points="372,350 404,282 436,352" fill="#2F9BDB" stroke="#16130F"/>
+      <ellipse cx="382" cy="440" rx="142" ry="106" fill="#2F9BDB" stroke="#16130F"/>
+      <rect x="496" y="252" width="74" height="196" rx="37" transform="rotate(10 533 350)" fill="#2F9BDB" stroke="#16130F"/>
+      <ellipse cx="556" cy="252" rx="74" ry="54" fill="#2F9BDB" stroke="#16130F"/>
+      <rect x="586" y="236" width="64" height="44" rx="18" fill="#2F9BDB" stroke="#16130F"/>
+      <circle cx="556" cy="232" r="14" fill="#16130F" stroke="#16130F"/>
+    </g>
+  </g>
+</svg>

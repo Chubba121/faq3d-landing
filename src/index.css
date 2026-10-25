@@ -1,0 +1,260 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Compensa el header sticky: 64px en móvil, 72px desde sm. */
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (min-width: 640px) {
+    html {
+      scroll-padding-top: 6rem;
+    }
+  }
+
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+    caret-color: #16130f;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display text-ink;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    @apply bg-ink text-paper;
+  }
+
+  :focus-visible {
+    outline: 2px solid #16130f;
+    outline-offset: 3px;
+  }
+
+  header :focus-visible,
+  footer :focus-visible {
+    outline-color: #f2ece0;
+  }
+
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #e7dfcf;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #16130f;
+    border: 4px solid #e7dfcf;
+    border-radius: 999px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .container-shop {
+    @apply mx-auto w-full max-w-[1400px] px-5 sm:px-8;
+  }
+
+  /* ── Vidriera ─────────────────────────────────────────────── */
+  .window-frame {
+    @apply relative rounded-[8px] border-[6px] border-ink bg-ink;
+    box-shadow: 0 30px 50px -34px rgba(22, 19, 15, 0.65);
+  }
+
+  .window-glass {
+    @apply relative overflow-hidden rounded-[2px];
+    background:
+      linear-gradient(114deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.1) 20%, rgba(255, 255, 255, 0) 42%),
+      linear-gradient(168deg, #e8eee7 0%, #dbe4dc 52%, #ccdad0 100%);
+    box-shadow: inset 0 0 0 1px rgba(22, 19, 15, 0.16);
+  }
+
+  .window-glass::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(
+      114deg,
+      transparent 0%,
+      transparent 46%,
+      rgba(255, 255, 255, 0.32) 47.5%,
+      transparent 49%,
+      transparent 60%,
+      rgba(255, 255, 255, 0.18) 61%,
+      transparent 62.5%
+    );
+  }
+
+  /* ── Papel, cinta y sellos ────────────────────────────────── */
+  .paper-sheet {
+    @apply relative rounded-xl border border-ink/15 bg-paper;
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.55) inset,
+      0 14px 22px -18px rgba(22, 19, 15, 0.55);
+  }
+
+  .tape {
+    @apply pointer-events-none absolute h-6 w-24;
+    background: linear-gradient(
+      90deg,
+      rgba(217, 198, 160, 0.75),
+      rgba(217, 198, 160, 0.95) 12%,
+      rgba(217, 198, 160, 0.95) 88%,
+      rgba(217, 198, 160, 0.75)
+    );
+    box-shadow: 0 1px 0 rgba(22, 19, 15, 0.12);
+    mix-blend-mode: multiply;
+    transform: rotate(-5deg);
+  }
+
+  .stamp {
+    @apply inline-flex items-center gap-1.5 rounded-[3px] border-2 px-2 py-0.5 text-[10px] font-bold uppercase leading-tight tracking-[0.16em];
+  }
+
+  .stamp-stock {
+    @apply border-stamp text-stamp;
+    transform: rotate(-5deg);
+  }
+
+  .stamp-order {
+    @apply border-brand-deep text-brand-deep;
+    transform: rotate(3deg);
+  }
+
+  /* ── Botones y controles ──────────────────────────────────── */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-[4px] px-5 py-3 text-sm font-semibold transition-colors duration-200;
+  }
+
+  .btn-ink {
+    @apply btn bg-ink text-paper hover:bg-ink-soft;
+  }
+
+  .btn-outline {
+    @apply btn border border-ink/35 bg-transparent text-ink hover:border-ink hover:bg-ink/5;
+  }
+
+  .btn-tag {
+    @apply inline-flex items-center justify-center gap-2 rounded-[4px] bg-paper px-4 py-2 text-sm font-semibold text-ink transition-colors hover:bg-white;
+  }
+
+  .arrow-btn {
+    @apply inline-flex h-9 w-9 items-center justify-center rounded-[4px] border border-ink/25 bg-paper text-ink transition-colors hover:border-ink hover:bg-ink hover:text-paper disabled:cursor-not-allowed disabled:opacity-30;
+  }
+
+  /* ── Pedido (cajón lateral) ───────────────────────────────── */
+  .cart-panel {
+    animation: cart-in 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  @keyframes cart-in {
+    from {
+      transform: translateX(18px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .cart-notice {
+    animation: notice-in 0.18s ease-out both;
+  }
+
+  @keyframes notice-in {
+    from {
+      transform: translateY(6px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  /* ── Estantes ─────────────────────────────────────────────── */
+  .shelf-label {
+    @apply inline-flex items-center gap-2 rounded-[3px] bg-ink px-3 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-paper;
+  }
+
+  .shelf-board {
+    @apply h-3 rounded-[2px] bg-ink;
+    box-shadow: 0 14px 18px -16px rgba(22, 19, 15, 0.9);
+  }
+
+  /* ── Fichas ───────────────────────────────────────────────── */
+  .price {
+    @apply font-display text-xl font-extrabold leading-none tracking-tight text-ink;
+  }
+
+  .plate-number {
+    @apply inline-flex items-center rounded-[3px] border border-ink/25 bg-paper/90 px-1.5 py-0.5 font-sans text-[10px] font-bold uppercase tracking-[0.12em] text-ink-soft;
+  }
+
+  /* Estado vacío de un estante sin modelos (todavía no publicados). */
+  .archive-empty {
+    @apply flex flex-col items-center gap-1 rounded-xl border border-dashed border-ink/25 bg-paper/55 px-5 py-8 text-center;
+  }
+
+  .archive-empty-label {
+    @apply font-sans text-sm font-semibold text-ink-soft;
+  }
+
+  .archive-empty-note {
+    @apply text-xs leading-relaxed text-ink-faded;
+  }
+
+  .product-card {
+    @apply relative flex h-full flex-col overflow-hidden rounded-xl border border-ink/15 bg-paper transition-[transform,box-shadow] duration-200 ease-out;
+    transform: rotate(var(--tilt, 0deg));
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.6) inset,
+      0 10px 16px -16px rgba(22, 19, 15, 0.5);
+  }
+
+  .product-card:focus-within {
+    transform: translateY(-4px) rotate(0deg);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.6) inset,
+      0 20px 24px -18px rgba(22, 19, 15, 0.55);
+  }
+
+  /* El levantado al pasar el mouse solo donde hay puntero fino: en pantallas
+     táctiles el :hover queda pegado después del tap y la tarjeta se queda
+     flotando hasta tocar otra cosa. */
+  @media (hover: hover) and (pointer: fine) {
+    .product-card:hover {
+      transform: translateY(-4px) rotate(0deg);
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.6) inset,
+        0 20px 24px -18px rgba(22, 19, 15, 0.55);
+    }
+  }
+}

@@ -1,0 +1,15 @@
+node_modules
+dist
+dist-ssr
+*.local
+.DS_Store
+.env
+.env.*
+!.env.example
+
+# Artefactos de desarrollo y pruebas (no van al repo)
+.screens
+test-results
+.impeccable
+shot-tmp.mjs
+freebuff-chat-*.md

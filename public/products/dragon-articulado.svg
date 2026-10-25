@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="92 65 656 656" width="800" height="800" role="img">
+  <g transform="translate(26 30)" opacity="0.22" stroke-width="12" stroke-linejoin="round">
+    <g>
+      <polygon points="150,470 305,398 305,522" stroke="#A62E1B" fill="#A62E1B"/>
+      <rect x="300" y="462" width="56" height="112" rx="28" stroke="#A62E1B" fill="#A62E1B"/>
+      <rect x="448" y="468" width="56" height="104" rx="28" stroke="#A62E1B" fill="#A62E1B"/>
+      <polygon points="298,342 330,262 362,342" stroke="#A62E1B" fill="#A62E1B"/>
+      <polygon points="378,334 410,250 442,334" stroke="#A62E1B" fill="#A62E1B"/>
+      <polygon points="456,330 488,256 518,330" stroke="#A62E1B" fill="#A62E1B"/>
+      <rect x="268" y="344" width="276" height="152" rx="76" stroke="#A62E1B" fill="#A62E1B"/>
+      <circle cx="566" cy="330" r="92" stroke="#A62E1B" fill="#A62E1B"/>
+      <rect x="560" y="310" width="104" height="76" rx="26" stroke="#A62E1B" fill="#A62E1B"/>
+      <polygon points="520,262 548,182 578,258" stroke="#A62E1B" fill="#A62E1B"/>
+      <polygon points="586,258 622,196 646,272" stroke="#A62E1B" fill="#A62E1B"/>
+      <circle cx="598" cy="312" r="15" stroke="#A62E1B" fill="#A62E1B"/>
+    </g>
+  </g>
+  <g stroke-width="12" stroke-linejoin="round" stroke-linecap="round">
+    <g>
+      <polygon points="150,470 305,398 305,522" fill="#2F9BDB" stroke="#16130F"/>
+      <rect x="300" y="462" width="56" height="112" rx="28" fill="#2F9BDB" stroke="#16130F"/>
+      <rect x="448" y="468" width="56" height="104" rx="28" fill="#2F9BDB" stroke="#16130F"/>
+      <polygon points="298,342 330,262 362,342" fill="#2F9BDB" stroke="#16130F"/>
+      <polygon points="378,334 410,250 442,334" fill="#2F9BDB" stroke="#16130F"/>
+      <polygon points="456,330 488,256 518,330" fill="#2F9BDB" stroke="#16130F"/>
+      <rect x="268" y="344" width="276" height="152" rx="76" fill="#2F9BDB" stroke="#16130F"/>
+      <circle cx="566" cy="330" r="92" fill="#2F9BDB" stroke="#16130F"/>
+      <rect x="560" y="310" width="104" height="76" rx="26" fill="#2F9BDB" stroke="#16130F"/>
+      <polygon points="520,262 548,182 578,258" fill="#2F9BDB" stroke="#16130F"/>
+      <polygon points="586,258 622,196 646,272" fill="#2F9BDB" stroke="#16130F"/>
+      <circle cx="598" cy="312" r="15" fill="#16130F" stroke="#16130F"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="29 10 802 802" width="800" height="800" role="img">
+  <g transform="translate(26 30)" opacity="0.22" stroke-width="12" stroke-linejoin="round">
+    <g transform="translate(400 400) scale(1.1) translate(-615 -488)">
+      <path d="M748 706 C 818 700 830 606 790 560" stroke="#A62E1B" fill="none" stroke-width="58"/>
+      <polygon points="520,296 502,186 588,266" stroke="#A62E1B" fill="#A62E1B"/>
+      <polygon points="680,296 698,186 612,266" stroke="#A62E1B" fill="#A62E1B"/>
+      <path d="M500 432 A 128 128 0 1 1 700 432 C 726 478 752 540 752 646 L752 700 C752 752 716 782 664 782 L536 782 C484 782 448 752 448 700 L448 646 C448 540 474 478 500 432 Z" stroke="#A62E1B" fill="#A62E1B"/>
+      <circle cx="556" cy="352" r="14" stroke="#A62E1B" fill="#A62E1B"/>
+      <circle cx="644" cy="352" r="14" stroke="#A62E1B" fill="#A62E1B"/>
+      <polygon points="586,404 614,404 600,420" stroke="#A62E1B" fill="#A62E1B"/>
+      <path d="M528 388 L468 376" stroke="#A62E1B" fill="none" stroke-width="7"/>
+      <path d="M528 404 L466 406" stroke="#A62E1B" fill="none" stroke-width="7"/>
+      <path d="M672 388 L732 376" stroke="#A62E1B" fill="none" stroke-width="7"/>
+      <path d="M672 404 L734 406" stroke="#A62E1B" fill="none" stroke-width="7"/>
+    </g>
+  </g>
+  <g stroke-width="12" stroke-linejoin="round" stroke-linecap="round">
+    <g transform="translate(400 400) scale(1.1) translate(-615 -488)">
+      <path d="M748 706 C 818 700 830 606 790 560" fill="none" stroke="#16130F" stroke-width="58"/>
+      <path d="M748 706 C 818 700 830 606 790 560" fill="none" stroke="#D9724F" stroke-width="44"/>
+      <polygon points="520,296 502,186 588,266" fill="#D9724F" stroke="#16130F"/>
+      <polygon points="680,296 698,186 612,266" fill="#D9724F" stroke="#16130F"/>
+      <path d="M500 432 A 128 128 0 1 1 700 432 C 726 478 752 540 752 646 L752 700 C752 752 716 782 664 782 L536 782 C484 782 448 752 448 700 L448 646 C448 540 474 478 500 432 Z" fill="#D9724F" stroke="#16130F"/>
+      <circle cx="556" cy="352" r="14" fill="#16130F" stroke="#16130F"/>
+      <circle cx="644" cy="352" r="14" fill="#16130F" stroke="#16130F"/>
+      <polygon points="586,404 614,404 600,420" fill="#16130F" stroke="#16130F"/>
+      <path d="M528 388 L468 376" fill="none" stroke="#16130F" stroke-width="7"/>
+      <path d="M528 404 L466 406" fill="none" stroke="#16130F" stroke-width="7"/>
+      <path d="M672 388 L732 376" fill="none" stroke="#16130F" stroke-width="7"/>
+      <path d="M672 404 L734 406" fill="none" stroke="#16130F" stroke-width="7"/>
+    </g>
+  </g>
+</svg>

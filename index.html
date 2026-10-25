@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="es-AR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#F2ECE0" />
+
+    <title>Faq3D | Impresiones 3D en Junín de los Andes</title>
+    <meta
+      name="description"
+      content="Muñecos articulados, juguetes sensoriales, llaveros y accesorios impresos en 3D. Stock en Junín de los Andes y modelos a pedido, con envíos a todo el país."
+    />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="author" content="Faq3D" />
+
+    <link rel="canonical" href="%SITE_URL%/" />
+    <link rel="alternate" hreflang="es-ar" href="%SITE_URL%/" />
+    <link rel="alternate" hreflang="x-default" href="%SITE_URL%/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Faq3D" />
+    <meta property="og:locale" content="es_AR" />
+    <meta property="og:url" content="%SITE_URL%/" />
+    <meta property="og:title" content="Faq3D | Tus ideas cobran vida en 3D" />
+    <meta
+      property="og:description"
+      content="Muñecos articulados, juguetes sensoriales, llaveros y accesorios impresos en 3D. Stock en Junín de los Andes y modelos a pedido, con envíos a todo el país."
+    />
+    <meta property="og:image" content="%SITE_URL%/og-image.jpg" />
+    <meta property="og:image:secure_url" content="%SITE_URL%/og-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Faq3D, impresiones 3D en Junín de los Andes, Neuquén" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Faq3D | Tus ideas cobran vida en 3D" />
+    <meta
+      name="twitter:description"
+      content="Muñecos articulados, juguetes sensoriales, llaveros y accesorios impresos en 3D. Stock en Junín de los Andes y modelos a pedido."
+    />
+    <meta name="twitter:image" content="%SITE_URL%/og-image.jpg" />
+    <meta name="twitter:image:alt" content="Faq3D, impresiones 3D en Junín de los Andes, Neuquén" />
+
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/favicon.png" />
+
+    <!-- Catálogo: conexión abierta a la planilla para que el CSV llegue antes. -->
+    <link rel="preconnect" href="https://docs.google.com" />
+    <link rel="dns-prefetch" href="//docs.google.com" />
+    <link rel="preconnect" href="https://doc-04-18-sheets.googleusercontent.com" />
+
+    <!--
+      El pedido del catálogo arranca acá, mientras se descarga el resto: la
+      espera de Google Sheets (redirección + planilla) es el punto más lento de
+      la carga. La app reutiliza esta misma respuesta (window.__faq3dCatalog).
+    -->
+    <script>
+      window.__faq3dCatalog = Promise.race([
+        fetch('%SHEETS_CSV_URL%', { cache: 'no-store' })
+          .then(function (response) {
+            return response.ok ? response.text() : null
+          })
+          .catch(function () {
+            return null
+          }),
+        new Promise(function (resolve) {
+          setTimeout(function () {
+            resolve(null)
+          }, 8000)
+        }),
+      ])
+    </script>
+
+    <link
+      rel="preload"
+      href="/fonts/bricolage-grotesque-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link rel="preload" href="/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Store",
+        "@id": "%SITE_URL%/#tienda",
+        "name": "Faq3D",
+        "slogan": "Creando tus ideas",
+        "description": "Impresiones 3D en Junín de los Andes, Neuquén: muñecos articulados, juguetes sensoriales, llaveros y accesorios. Stock inmediato y modelos a pedido, con envíos a todo el país.",
+        "url": "%SITE_URL%/",
+        "image": "%SITE_URL%/og-image.jpg",
+        "logo": "%SITE_URL%/logo.webp",
+        "priceRange": "$$",
+        "currenciesAccepted": "ARS",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Junín de los Andes",
+          "addressRegion": "Neuquén",
+          "addressCountry": "AR"
+        },
+        "areaServed": [{ "@type": "Country", "name": "Argentina" }],
+        "sameAs": [
+          "https://www.instagram.com/faq3d",
+          "https://www.tiktok.com/@faq3d"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
