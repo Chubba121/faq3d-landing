@@ -129,7 +129,6 @@ export function formatPriceLabel(value) {
 }
 
 export const NAV_LINKS = [
-  { href: '#stock', label: 'Stock' },
   { href: '#catalogo', label: 'Catálogo' },
   { href: '#como-comprar', label: 'Cómo comprar' },
   { href: '#envios', label: 'Envíos' },

@@ -69,12 +69,11 @@ export default function Hero() {
               </div>
 
               <div className="mt-8 pt-2 lg:mt-auto">
-                {/* Tres columnas de 56px en 320px: la etiqueta va en 9px y la
-                    cifra en 18px hasta sm, si no "$2.500" se sale de su celda
-                    (se veía cortada al lado de "9"). */}
+                {/* Dos columnas de 56px en 320px: la etiqueta va en 9px y la
+                    cifra en 18px hasta sm, si no "$2.500" se sale de su celda. */}
                 <dl
                   className={`grid gap-2 border-t border-dashed border-ink/25 pt-5 sm:gap-3 ${
-                    hasMinPrice ? 'grid-cols-3' : 'grid-cols-2'
+                    hasMinPrice ? 'grid-cols-2' : 'grid-cols-1'
                   }`}
                 >
                   <div>
@@ -83,14 +82,6 @@ export default function Hero() {
                     </dt>
                     <dd className={STAT_VALUE}>
                       {isLoading ? <StatSkeleton className="h-7 w-10 sm:h-8" /> : stats.total}
-                    </dd>
-                  </div>
-                  <div>
-                    <dt className={STAT_LABEL}>
-                      Para llevar
-                    </dt>
-                    <dd className={STAT_VALUE}>
-                      {isLoading ? <StatSkeleton className="h-7 w-10 sm:h-8" /> : stats.stock}
                     </dd>
                   </div>
                   {/* Sin un precio publicable no hay "Desde" que mostrar: un

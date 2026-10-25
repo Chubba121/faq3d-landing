@@ -74,8 +74,8 @@ export default function CartDrawer() {
               Sumá los modelos que te gusten y mandanos el pedido completo con el total ya
               calculado.
             </p>
-            <a href="#stock" onClick={close} className="btn-ink min-h-11 px-5 py-2.5 text-sm">
-              Ver el stock
+            <a href="#catalogo" onClick={close} className="btn-ink min-h-11 px-5 py-2.5 text-sm">
+              Ver el catálogo
             </a>
           </div>
         ) : (
